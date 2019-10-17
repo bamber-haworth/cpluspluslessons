@@ -36,8 +36,13 @@ public:
 
     void getStateInformation (MemoryBlock & destData) override { ignoreUnused (destData); }
     void setStateInformation (const void * data, int sizeInBytes) override { ignoreUnused (data, sizeInBytes); }
+    
+    // What is the danger here??
+    AudioParameterChoice & getDelayTimeParameter ();
 
 private:
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SimpleDelayAudioProcessor)
+    
+    AudioParameterChoice * _delayTime = nullptr;
 };

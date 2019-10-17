@@ -17,5 +17,6 @@ private:
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SimpleDelayAudioProcessorEditor)
     
-    SimpleDelayAudioProcessor& processor;
+    SimpleDelayAudioProcessor & _processor;
+    ComboBox _delayTime;
 };

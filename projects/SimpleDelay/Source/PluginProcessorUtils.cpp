@@ -1,17 +1,6 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
-SimpleDelayAudioProcessor::SimpleDelayAudioProcessor ()
-    : AudioProcessor (BusesProperties()
-                       .withInput  ("Input",  AudioChannelSet::stereo(), true)
-                       .withOutput ("Output", AudioChannelSet::stereo(), true))
-{
-}
-
-SimpleDelayAudioProcessor::~SimpleDelayAudioProcessor ()
-{
-}
-
 bool SimpleDelayAudioProcessor::isBusesLayoutSupported (const BusesLayout & layouts) const
 {
     if ((layouts.getMainOutputChannelSet() != AudioChannelSet::mono() &&
@@ -22,12 +11,18 @@ bool SimpleDelayAudioProcessor::isBusesLayoutSupported (const BusesLayout & layo
     return true;
 }
 
-AudioProcessorEditor* SimpleDelayAudioProcessor::createEditor()
+AudioProcessorEditor * SimpleDelayAudioProcessor::createEditor ()
 {
     return new SimpleDelayAudioProcessorEditor (*this);
 }
 
-AudioProcessor* JUCE_CALLTYPE createPluginFilter()
+AudioParameterChoice & SimpleDelayAudioProcessor::getDelayTimeParameter ()
 {
-    return new SimpleDelayAudioProcessor();
+    jassert (_delayTime != nullptr);
+    return *_delayTime;
+}
+
+AudioProcessor * JUCE_CALLTYPE createPluginFilter ()
+{
+    return new SimpleDelayAudioProcessor ();
 }
