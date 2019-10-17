@@ -7,7 +7,7 @@ double SimpleDelayAudioProcessor::getTailLengthSeconds () const
 
 void SimpleDelayAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-
+    ignoreUnused (sampleRate, samplesPerBlock);
 }
 
 void SimpleDelayAudioProcessor::releaseResources ()
@@ -17,6 +17,8 @@ void SimpleDelayAudioProcessor::releaseResources ()
 
 void SimpleDelayAudioProcessor::processBlock (AudioBuffer<float> & buffer, MidiBuffer & midiMessages)
 {
+    ignoreUnused (buffer, midiMessages);
+
     ScopedNoDenormals noDenormals;
     auto totalNumInputChannels  = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
@@ -27,7 +29,7 @@ void SimpleDelayAudioProcessor::processBlock (AudioBuffer<float> & buffer, MidiB
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
         auto* channelData = buffer.getWritePointer (channel);
-
+        ignoreUnused (channelData);
         // ..do something to the data...
     }
 }
