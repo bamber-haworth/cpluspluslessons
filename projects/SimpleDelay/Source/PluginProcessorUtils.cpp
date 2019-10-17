@@ -1,5 +1,4 @@
 #include "PluginProcessor.h"
-#include "PluginEditor.h"
 
 bool SimpleDelayAudioProcessor::isBusesLayoutSupported (const BusesLayout & layouts) const
 {
@@ -9,17 +8,6 @@ bool SimpleDelayAudioProcessor::isBusesLayoutSupported (const BusesLayout & layo
         return false;
 
     return true;
-}
-
-AudioProcessorEditor * SimpleDelayAudioProcessor::createEditor ()
-{
-    return new SimpleDelayAudioProcessorEditor (*this);
-}
-
-AudioParameterChoice & SimpleDelayAudioProcessor::getDelayTimeParameter ()
-{
-    jassert (_delayTime != nullptr);
-    return *_delayTime;
 }
 
 AudioProcessor * JUCE_CALLTYPE createPluginFilter ()

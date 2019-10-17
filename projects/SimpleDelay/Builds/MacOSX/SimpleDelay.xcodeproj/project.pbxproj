@@ -37,7 +37,6 @@
 		35358DD5F493A9B29516D2DC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCC825602ECB5447F2A6217 /* CoreMedia.framework */; };
 		3782234076E5C2EC2EA34AFA /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058111038B3D4AB3C34EF816 /* CoreMIDI.framework */; };
 		385E871E736321050399B349 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE4EE60D7536F7DB0BCAB12 /* Accelerate.framework */; };
-		54DCDB928973F27E464EE4D6 /* PluginEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 308A3DD7D9B969E8D0FC4A6D /* PluginEditor.cpp */; };
 		561C4E0731D83FFDD75D78E8 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D84413FA8AD8F6F372596F /* AVKit.framework */; };
 		576B04F629572198D415069D /* include_juce_cryptography.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2187C6B12584CF85C2184D24 /* include_juce_cryptography.mm */; };
 		7071D623FCAEA6C20E7D9CE5 /* include_juce_audio_plugin_client_utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F857EC7DC77D6DDAD14992C /* include_juce_audio_plugin_client_utils.cpp */; };
@@ -48,6 +47,7 @@
 		83C6988A87401A920AF4D914 /* PluginProcessorUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9FCD6EAE218D52AB360A75C /* PluginProcessorUtils.cpp */; };
 		882FA28075BDF3C8A78B16E8 /* include_juce_audio_plugin_client_AU_1.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED73C93BA91BB181DE342959 /* include_juce_audio_plugin_client_AU_1.mm */; };
 		9C29F9864B1240E1EA756D51 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73CF2449BEE2A9250A07B55F /* QuartzCore.framework */; };
+		9C80631023586B8D0056F2AE /* DelayTimeCalculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C80630F23586B8D0056F2AE /* DelayTimeCalculator.cpp */; };
 		9E6A4555FFCEEE818B801DCC /* include_juce_events.mm in Sources */ = {isa = PBXBuildFile; fileRef = A74EB8982C88ECFE276EEDD9 /* include_juce_events.mm */; };
 		A0962A769EC459590F3AD812 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1F39040F798FE73CD296DC /* OpenGL.framework */; };
 		A53C7657708C95E4CBA2E9D3 /* include_juce_data_structures.mm in Sources */ = {isa = PBXBuildFile; fileRef = 206B6C7FC28B461CF6A904A8 /* include_juce_data_structures.mm */; };
@@ -96,10 +96,8 @@
 		264878E66D189BDD29B180C4 /* include_juce_graphics.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_graphics.mm; path = ../../JuceLibraryCode/include_juce_graphics.mm; sourceTree = SOURCE_ROOT; };
 		28E99887B520B79ED1958274 /* juce_video */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_video; path = ../../JuceLibraryCode/modules/juce_video; sourceTree = SOURCE_ROOT; };
 		297658C54F005865C8B23258 /* include_juce_audio_basics.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_basics.mm; path = ../../JuceLibraryCode/include_juce_audio_basics.mm; sourceTree = SOURCE_ROOT; };
-		308A3DD7D9B969E8D0FC4A6D /* PluginEditor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginEditor.cpp; path = ../../Source/PluginEditor.cpp; sourceTree = SOURCE_ROOT; };
 		336E69AA8E762CCB035341E5 /* libSimpleDelay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSimpleDelay.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		378F92F8AB173877908131DF /* juce_opengl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_opengl; path = ../../JuceLibraryCode/modules/juce_opengl; sourceTree = SOURCE_ROOT; };
-		3CABAF86B3D73D504B1B8ABB /* PluginEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginEditor.h; path = ../../Source/PluginEditor.h; sourceTree = SOURCE_ROOT; };
 		3DCB6EC085087F629A21C33A /* SimpleDelay.component */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleDelay.component; sourceTree = BUILT_PRODUCTS_DIR; };
 		43D84413FA8AD8F6F372596F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		4F7DF9536CAD25F19428DB58 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -121,6 +119,8 @@
 		8CCC825602ECB5447F2A6217 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		937235625A3E43A67898FDF4 /* include_juce_audio_plugin_client_VST_utils.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_plugin_client_VST_utils.mm; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_VST_utils.mm; sourceTree = SOURCE_ROOT; };
 		9726B63B57CFB91574E8EA70 /* juce_audio_devices */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_devices; path = ../../JuceLibraryCode/modules/juce_audio_devices; sourceTree = SOURCE_ROOT; };
+		9C80630E23586B8D0056F2AE /* DelayTimeCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DelayTimeCalculator.h; path = ../../Source/DelayTimeCalculator.h; sourceTree = "<group>"; };
+		9C80630F23586B8D0056F2AE /* DelayTimeCalculator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DelayTimeCalculator.cpp; path = ../../Source/DelayTimeCalculator.cpp; sourceTree = "<group>"; };
 		9CD3C50B16ECFDB50C1EC311 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		9CF8ACDEC9C55F9A01C625C1 /* juce_gui_extra */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_gui_extra; path = ../../JuceLibraryCode/modules/juce_gui_extra; sourceTree = SOURCE_ROOT; };
 		9DCB7748A74B4EB4A68267D1 /* SimpleDelay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SimpleDelay.entitlements; sourceTree = SOURCE_ROOT; };
@@ -223,8 +223,8 @@
 				C9FCD6EAE218D52AB360A75C /* PluginProcessorUtils.cpp */,
 				FF82CB5D45A6C302EB4A10CE /* PluginProcessor.cpp */,
 				86EDD9C51B93ED1B5B75D7F0 /* PluginProcessor.h */,
-				308A3DD7D9B969E8D0FC4A6D /* PluginEditor.cpp */,
-				3CABAF86B3D73D504B1B8ABB /* PluginEditor.h */,
+				9C80630E23586B8D0056F2AE /* DelayTimeCalculator.h */,
+				9C80630F23586B8D0056F2AE /* DelayTimeCalculator.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -452,7 +452,6 @@
 			files = (
 				83C6988A87401A920AF4D914 /* PluginProcessorUtils.cpp in Sources */,
 				1165DCE2064D844413C1D74F /* PluginProcessor.cpp in Sources */,
-				54DCDB928973F27E464EE4D6 /* PluginEditor.cpp in Sources */,
 				08C41F582C39D01BEE2B08FC /* include_juce_audio_basics.mm in Sources */,
 				30FBA953169EB0E4C75D7605 /* include_juce_audio_devices.mm in Sources */,
 				0FD30A01AEBF61F29E169F75 /* include_juce_audio_formats.mm in Sources */,
@@ -468,6 +467,7 @@
 				C1D3F3EF1DF679069669A71F /* include_juce_graphics.mm in Sources */,
 				75FE43EF686039170508C8E2 /* include_juce_gui_basics.mm in Sources */,
 				0EFF8061F6C100343DD7D13B /* include_juce_gui_extra.mm in Sources */,
+				9C80631023586B8D0056F2AE /* DelayTimeCalculator.cpp in Sources */,
 				C59DDA8BAEDEFDC26F909BE9 /* include_juce_opengl.mm in Sources */,
 				257C5CC47CBEC959081AE6D6 /* include_juce_video.mm in Sources */,
 			);

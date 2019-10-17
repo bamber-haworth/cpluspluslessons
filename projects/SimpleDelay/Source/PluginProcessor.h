@@ -2,6 +2,8 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 
+#include "DelayTimeCalculator.h"
+
 class SimpleDelayAudioProcessor  : public AudioProcessor
 {
 public:
@@ -18,8 +20,8 @@ public:
 
     void processBlock (AudioBuffer<float> &, MidiBuffer &) override;
 
-    AudioProcessorEditor* createEditor () override;
-    bool hasEditor () const override { return true; }
+    AudioProcessorEditor * createEditor () override { return nullptr; }
+    bool hasEditor () const override { return false; }
 
     const String getName () const override { return JucePlugin_Name; }
 
@@ -36,13 +38,11 @@ public:
 
     void getStateInformation (MemoryBlock & destData) override { ignoreUnused (destData); }
     void setStateInformation (const void * data, int sizeInBytes) override { ignoreUnused (data, sizeInBytes); }
-    
-    // What is the danger here??
-    AudioParameterChoice & getDelayTimeParameter ();
 
 private:
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SimpleDelayAudioProcessor)
     
+    DelayTimeCalculator _delayTimeCalculator;
     AudioParameterChoice * _delayTime = nullptr;
 };
