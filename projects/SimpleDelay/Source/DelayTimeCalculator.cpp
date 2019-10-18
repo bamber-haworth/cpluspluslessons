@@ -56,12 +56,12 @@ float DelayTimeCalculator::getDivisorForDivision (TempoDivision division) const
 {
     switch (division)
     {
-        case DelayTimeCalculator::TempoDivision::one:           return 1;
-        case DelayTimeCalculator::TempoDivision::half:          return 0.5f;
-        case DelayTimeCalculator::TempoDivision::quarter:       return 0.25f;
-        case DelayTimeCalculator::TempoDivision::eigth:         return 0.125f;
-        case DelayTimeCalculator::TempoDivision::sixteenth:     return 0.0625f;
-        case DelayTimeCalculator::TempoDivision::thirtysecond:  return 0.03125f;
+        case DelayTimeCalculator::TempoDivision::one:           return 4;
+        case DelayTimeCalculator::TempoDivision::half:          return 2.f;
+        case DelayTimeCalculator::TempoDivision::quarter:       return 1.f;
+        case DelayTimeCalculator::TempoDivision::eigth:         return 0.5f;
+        case DelayTimeCalculator::TempoDivision::sixteenth:     return 0.25f;
+        case DelayTimeCalculator::TempoDivision::thirtysecond:  return 0.125f;
     }
     
     jassertfalse;

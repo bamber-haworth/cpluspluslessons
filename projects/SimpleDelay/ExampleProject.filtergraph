@@ -46,10 +46,12 @@
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
-  <FILTER uid="4" x="0.53874999999999995115" y="0.50000000000000000000">
+  <FILTER uid="4" x="0.53874999999999995115" y="0.50000000000000000000"
+          uiLastX_Normal="87" uiLastY_Normal="105" uiopen_Normal="0" uiLastX_Generic="275"
+          uiLastY_Generic="210" uiopen_Generic="1">
     <PLUGIN name="SimpleDelay" format="AudioUnit" category="Effect" manufacturer="ampify"
             version="1.0.0" file="AudioUnit:Effects/aufx,Tiwx,Manu" uid="787d7f75"
-            isInstrument="0" fileTime="0" infoUpdateTime="16dde0e9c01" numInputs="2"
+            isInstrument="0" fileTime="0" infoUpdateTime="16dde2d4ab5" numInputs="2"
             numOutputs="2" isShell="0"/>
     <STATE>213.hAGaoMGcv.y0AHv.DTfAGfPBJHwDTTAWsEla0YVXiQWcxUlbTQVXzEFWkwVYsUlaz0hag0VYWMWchQWdvU1U1Ulbyk1atQEc4AWYT4VXsUlDMEla08DDT...............APlBF.+OYjolRu.CM.QTwDkLQ6vCQASUI4Fb0QWzNDgUOUGcvUGcRPUZ2gGD.HQX0YFdXUkazkFcrUFYHbAIoXiOFsDTUwVbyUGd5A3fJ9XjVB.......DP..........XA...................vm</STATE>
     <LAYOUT>
@@ -61,12 +63,13 @@
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
-  <FILTER uid="6" x="0.32500000000000001110" y="0.30370370370370369795">
-    <PLUGIN name="AUMIDISynth" format="AudioUnit" category="Synth" manufacturer="Apple"
-            version="1.0.0" file="AudioUnit:Synths/aumu,msyn,appl" uid="6d766477"
-            isInstrument="1" fileTime="0" infoUpdateTime="16dde0e9c01" numInputs="0"
-            numOutputs="2" isShell="0"/>
-    <STATE>183.hAGaoMGcv.i0AHv.DTfAGfPBJr.CT4VXsUFWsEla0YVXiQWcxUlbTQVXzEFUzkGbkc0b0IFc4AWYWYWYxMWZu4FVU4FcoQGakQlDgAGbr8DDr...............D...CPH.......v.EB.......Lfg........CbH.....RDVcsUmDsMWdtAA.HTgFmvRL4DjRO42fHB.......DP..........z....................fh</STATE>
+  <FILTER uid="7" x="0.59750000000000003109" y="0.28888888888888886175"
+          uiLastX_Normal="475" uiLastY_Normal="218" uiopen_Normal="1">
+    <PLUGIN name="AUAudioFilePlayer" format="AudioUnit" category="Generator"
+            manufacturer="Apple" version="1.6.0" file="AudioUnit:Generators/augn,afpl,appl"
+            uid="6163676e" isInstrument="0" fileTime="0" infoUpdateTime="16dde2d4ab6"
+            numInputs="0" numOutputs="2" isShell="0"/>
+    <STATE>620.hAGaoMGcv.C1AHv.DTfAGfPBJr.Gc3wGgvUag4VclE1XzUmbkIGUjEFcg8EDarVPUAkbkMWYzAUYxMWZyQWYtQ2TzEFcksTY4c0b0IFc4AWYWYWYxMWZu4FUzkGbk8EDOXVZrUVKxUlYkIWYtMVYyQkag0VYRDFbvwFPgxvzM3vCPDwEXYTZrUlSg0VYWIUYmk1atMmWIM2TkwVYiQWYjYTZrU1WP32KUMWYxM2KvEVcrMFZg4VXuPzaiUWak4Fcy8BQkYWYr8FbsUlaz8xXvwVcyAGa0MGakM2bu41bu.mbuoVYiQ2buLUZsAGakQTYrEVdubCY2L1MzbSLsTVYhMSKz.CYl0BN1PlXsPlYgkiMzXCL4TVXy7ULyHyW07ULx3xcgYWnRP8DTTgEWfwEZ3kTkcVZu4FQuU1bL81avokTkcVZu4FQgQWXeAADIM2TkwVYiQWYjIUYmk1atokTkcVZu4lSg0VYI7DDvA...........TOEDD.....TkZM...F...J2k...fA...TOEDD.....TkZM...F..DPc+MC.....A...............................................................XSNA......PBZ4TY2AhTkcVZu4VBRDlYvwFD.HQX0claQCBDVYTZrUFHwfUUtQWZzwVYjA.B.jA.l.vJ.jD.QAPV.3E.vAPc.nG.6APe.PH.MBPk.PZ.kDvIA.S.+DfRAzU.nEPZAvc.cG.5Ajd.tG.7ATe.3Gv+........BD..........h...................Bf.</STATE>
     <LAYOUT>
       <INPUTS/>
       <OUTPUTS>
@@ -74,9 +77,8 @@
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
-  <CONNECTION srcFilter="2" srcChannel="4096" dstFilter="6" dstChannel="4096"/>
   <CONNECTION srcFilter="4" srcChannel="0" dstFilter="3" dstChannel="0"/>
   <CONNECTION srcFilter="4" srcChannel="1" dstFilter="3" dstChannel="1"/>
-  <CONNECTION srcFilter="6" srcChannel="0" dstFilter="4" dstChannel="0"/>
-  <CONNECTION srcFilter="6" srcChannel="1" dstFilter="4" dstChannel="1"/>
+  <CONNECTION srcFilter="7" srcChannel="0" dstFilter="4" dstChannel="0"/>
+  <CONNECTION srcFilter="7" srcChannel="1" dstFilter="4" dstChannel="1"/>
 </FILTERGRAPH>

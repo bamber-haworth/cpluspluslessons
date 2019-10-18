@@ -27,8 +27,14 @@ public:
 
 private:
     
-    void allocate ();
+    void allocate (double sampleRate);
     void deallocate ();
+    
+    int _maxBufferSize = 0;
+    float * _delayBuffer = nullptr;
+    float * _bufferEnd = nullptr;
+    float * _writeHead = nullptr;
+    float * _readHead = nullptr;
 };
 
 
