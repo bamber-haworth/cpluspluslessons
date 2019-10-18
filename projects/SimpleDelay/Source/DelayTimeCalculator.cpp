@@ -1,5 +1,8 @@
 #include "DelayTimeCalculator.h"
 
+namespace ampify
+{
+
 DelayTimeCalculator::DelayTimeCalculator ()
 {
     _tempoDivisionMap =
@@ -70,7 +73,14 @@ float DelayTimeCalculator::getDelayTimeInMilliseconds (float tempo, TempoDivisio
     return (60000 / tempo) * getDivisorForDivision (division);
 }
 
-int DelayTimeCalculator::getDelayTimeInSamples (float tempo, TempoDivision division)
+int DelayTimeCalculator::getDelayTimeInSamples (float tempo, TempoDivision division) const
 {
     return roundToInt ((getDelayTimeInMilliseconds (tempo, division) / 1000.0) * _sampleRate);
+}
+
+int DelayTimeCalculator::getDelayTimeInSamples (float tempo, int division) const
+{
+    return getDelayTimeInSamples (tempo, DelayTimeCalculator::TempoDivision (division));
+}
+
 }

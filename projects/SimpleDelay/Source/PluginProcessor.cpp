@@ -22,13 +22,16 @@ double SimpleDelayAudioProcessor::getTailLengthSeconds () const
 
 void SimpleDelayAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    ignoreUnused (samplesPerBlock);
     _delayTimeCalculator.setSampleRate (float (sampleRate));
+    
+    for (int delayIndex = 0; delayIndex < numberOfChannelsOfDelay; ++delayIndex)
+        _delayLines[delayIndex].prepareToPlay (sampleRate, samplesPerBlock);
 }
 
 void SimpleDelayAudioProcessor::releaseResources ()
 {
-
+    for (int delayIndex = 0; delayIndex < numberOfChannelsOfDelay; ++delayIndex)
+        _delayLines[delayIndex].releaseResources ();
 }
 
 void SimpleDelayAudioProcessor::processBlock (AudioBuffer<float> & buffer, MidiBuffer & midiMessages)
@@ -36,34 +39,22 @@ void SimpleDelayAudioProcessor::processBlock (AudioBuffer<float> & buffer, MidiB
     ignoreUnused (midiMessages);
 
     ScopedNoDenormals noDenormals;
-    auto totalNumInputChannels  = getTotalNumInputChannels();
-    auto totalNumOutputChannels = getTotalNumOutputChannels();
+    auto totalNumInputChannels  = std::min<int> (numberOfChannelsOfDelay, getTotalNumInputChannels ());
+    auto totalNumOutputChannels = std::min<int> (numberOfChannelsOfDelay, getTotalNumOutputChannels ());
 
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
     
-    auto playHead = getPlayHead ();
-    if (playHead == nullptr)
-    {
-        jassertfalse;
-        return;
-    }
-    
-    AudioPlayHead::CurrentPositionInfo info;
-    if (! playHead->getCurrentPosition (info))
+    auto delayTimeInSamples = computeDelayTimeInSamples ();
+    if (delayTimeInSamples <= 0)
     {
         jassertfalse;
         return;
     }
 
-    auto delayTimeInSamples = _delayTimeCalculator.getDelayTimeInSamples (float (info.bpm),
-                                                                          DelayTimeCalculator::TempoDivision (_delayTime->getIndex ()));
-    
-    ignoreUnused (delayTimeInSamples);
-    
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
-        auto * channelData = buffer.getWritePointer (channel);
-        ignoreUnused (channelData);
+        _delayLines[channel].setDelayTimeInSamples (delayTimeInSamples);
+        _delayLines[channel].process (buffer, channel);
     }
 }

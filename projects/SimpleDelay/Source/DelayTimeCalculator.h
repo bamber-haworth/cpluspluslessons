@@ -2,6 +2,8 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 
+namespace ampify
+{
 
 class DelayTimeCalculator
 {
@@ -27,7 +29,8 @@ public:
     
     void setSampleRate (float sampleRate);
     
-    int getDelayTimeInSamples (float tempo, TempoDivision division);
+    int getDelayTimeInSamples (float tempo, TempoDivision division) const;
+    int getDelayTimeInSamples (float tempo, int division) const;
 
 private:
     
@@ -40,3 +43,4 @@ private:
     float _sampleRate = 44100.f;
 };
 
+}

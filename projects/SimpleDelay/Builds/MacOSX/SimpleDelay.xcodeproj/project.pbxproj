@@ -48,6 +48,7 @@
 		882FA28075BDF3C8A78B16E8 /* include_juce_audio_plugin_client_AU_1.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED73C93BA91BB181DE342959 /* include_juce_audio_plugin_client_AU_1.mm */; };
 		9C29F9864B1240E1EA756D51 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73CF2449BEE2A9250A07B55F /* QuartzCore.framework */; };
 		9C80631023586B8D0056F2AE /* DelayTimeCalculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C80630F23586B8D0056F2AE /* DelayTimeCalculator.cpp */; };
+		9C8063132359B0710056F2AE /* DelayLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C8063122359B0710056F2AE /* DelayLine.cpp */; };
 		9E6A4555FFCEEE818B801DCC /* include_juce_events.mm in Sources */ = {isa = PBXBuildFile; fileRef = A74EB8982C88ECFE276EEDD9 /* include_juce_events.mm */; };
 		A0962A769EC459590F3AD812 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1F39040F798FE73CD296DC /* OpenGL.framework */; };
 		A53C7657708C95E4CBA2E9D3 /* include_juce_data_structures.mm in Sources */ = {isa = PBXBuildFile; fileRef = 206B6C7FC28B461CF6A904A8 /* include_juce_data_structures.mm */; };
@@ -121,6 +122,8 @@
 		9726B63B57CFB91574E8EA70 /* juce_audio_devices */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_devices; path = ../../JuceLibraryCode/modules/juce_audio_devices; sourceTree = SOURCE_ROOT; };
 		9C80630E23586B8D0056F2AE /* DelayTimeCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DelayTimeCalculator.h; path = ../../Source/DelayTimeCalculator.h; sourceTree = "<group>"; };
 		9C80630F23586B8D0056F2AE /* DelayTimeCalculator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DelayTimeCalculator.cpp; path = ../../Source/DelayTimeCalculator.cpp; sourceTree = "<group>"; };
+		9C8063112359B0710056F2AE /* DelayLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DelayLine.h; path = ../../Source/DelayLine.h; sourceTree = "<group>"; };
+		9C8063122359B0710056F2AE /* DelayLine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DelayLine.cpp; path = ../../Source/DelayLine.cpp; sourceTree = "<group>"; };
 		9CD3C50B16ECFDB50C1EC311 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		9CF8ACDEC9C55F9A01C625C1 /* juce_gui_extra */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_gui_extra; path = ../../JuceLibraryCode/modules/juce_gui_extra; sourceTree = SOURCE_ROOT; };
 		9DCB7748A74B4EB4A68267D1 /* SimpleDelay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SimpleDelay.entitlements; sourceTree = SOURCE_ROOT; };
@@ -225,6 +228,8 @@
 				86EDD9C51B93ED1B5B75D7F0 /* PluginProcessor.h */,
 				9C80630E23586B8D0056F2AE /* DelayTimeCalculator.h */,
 				9C80630F23586B8D0056F2AE /* DelayTimeCalculator.cpp */,
+				9C8063112359B0710056F2AE /* DelayLine.h */,
+				9C8063122359B0710056F2AE /* DelayLine.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -451,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83C6988A87401A920AF4D914 /* PluginProcessorUtils.cpp in Sources */,
+				9C8063132359B0710056F2AE /* DelayLine.cpp in Sources */,
 				1165DCE2064D844413C1D74F /* PluginProcessor.cpp in Sources */,
 				08C41F582C39D01BEE2B08FC /* include_juce_audio_basics.mm in Sources */,
 				30FBA953169EB0E4C75D7605 /* include_juce_audio_devices.mm in Sources */,

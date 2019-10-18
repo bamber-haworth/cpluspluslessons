@@ -3,6 +3,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 
 #include "DelayTimeCalculator.h"
+#include "DelayLine.h"
 
 class SimpleDelayAudioProcessor  : public AudioProcessor
 {
@@ -43,6 +44,11 @@ private:
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SimpleDelayAudioProcessor)
     
-    DelayTimeCalculator _delayTimeCalculator;
+    static constexpr int numberOfChannelsOfDelay = 2;
+    
+    int computeDelayTimeInSamples ();
+    
+    ampify::DelayTimeCalculator _delayTimeCalculator;
+    ampify::DelayLine _delayLines[numberOfChannelsOfDelay];
     AudioParameterChoice * _delayTime = nullptr;
 };
