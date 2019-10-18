@@ -50,5 +50,7 @@ private:
     
     ampify::DelayTimeCalculator _delayTimeCalculator;
     ampify::DelayLine _delayLines[numberOfChannelsOfDelay];
+    
     AudioParameterChoice * _delayTime = nullptr;
+    AudioParameterFloat * _feedback = nullptr;
 };

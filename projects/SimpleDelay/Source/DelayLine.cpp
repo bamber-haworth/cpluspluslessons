@@ -33,14 +33,14 @@ void DelayLine::process (AudioBuffer<float> & buffer, int channelIndex)
         jassertfalse;
         return;
     }
-    
+
     for (int sample = 0, maxSamples = buffer.getNumSamples (); sample < maxSamples; ++sample)
     {
-        auto readSample  = *channelPointer;
         auto writeSample = *_readHead;
+        auto readSample  = *channelPointer;
     
-        *_writeHead = readSample;
-        *channelPointer = writeSample * 0.5f + readSample * 0.5f;
+        *_writeHead = std::tanh (readSample + (_feedback * writeSample));
+        *channelPointer = std::tanh (writeSample * 0.5f + readSample * 0.5f);
 
         if (++_writeHead >= _bufferEnd)
             _writeHead = _delayBuffer;
@@ -61,6 +61,12 @@ void DelayLine::setDelayTimeInSamples (int delayTimeInSamples)
         if (_readHead < _delayBuffer)
             _readHead = _bufferEnd;
     }
+}
+
+void DelayLine::setFeedback (float feedback01)
+{
+    jassert (feedback01 >= 0.f && feedback01 <= 1.f);
+    _feedback = feedback01 * 0.9f;
 }
 
 void DelayLine::allocate (double sampleRate)

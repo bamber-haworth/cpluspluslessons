@@ -20,6 +20,7 @@ public:
     bool operator != (const DelayLine & other) const = delete;
     
     void setDelayTimeInSamples (int delayTimeInSamples);
+    void setFeedback (float feedback01);
     
     void releaseResources ();
     void prepareToPlay (double sampleRate, int samplesPerBlock);
@@ -30,6 +31,7 @@ private:
     void allocate (double sampleRate);
     void deallocate ();
     
+    float _feedback = 0.25f;
     int _maxBufferSize = 0;
     float * _delayBuffer = nullptr;
     float * _bufferEnd = nullptr;

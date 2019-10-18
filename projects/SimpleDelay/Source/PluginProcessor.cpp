@@ -9,6 +9,8 @@ SimpleDelayAudioProcessor::SimpleDelayAudioProcessor ()
                                                          "Delay Time",
                                                          _delayTimeCalculator.getTimeDivisions (),
                                                          _delayTimeCalculator.getDefaultTempoDivisionIndex ()));
+    
+    addParameter (_feedback = new AudioParameterFloat ("feedback", "Feedback", 0.0f, 1.0f, 0.5f));
 }
 
 SimpleDelayAudioProcessor::~SimpleDelayAudioProcessor ()
@@ -55,6 +57,7 @@ void SimpleDelayAudioProcessor::processBlock (AudioBuffer<float> & buffer, MidiB
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
         _delayLines[channel].setDelayTimeInSamples (delayTimeInSamples);
+        _delayLines[channel].setFeedback (_feedback->get ());
         _delayLines[channel].process (buffer, channel);
     }
 }
